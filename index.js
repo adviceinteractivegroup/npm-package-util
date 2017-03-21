@@ -876,11 +876,10 @@ const isURL = function isURL(str) {
   return regex .test(str);
 };
 
-module.exports = {
+exports = module.exports = {
   normalize: normalize,
   verifyNapGp: verifyNapGp,
   isNumeric: isNumeric,
   isURL: isURL
-  
 };
 
