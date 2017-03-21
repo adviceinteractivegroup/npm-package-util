@@ -1,7 +1,7 @@
 {
-  "name": "directory-data",
+  "name": "util",
   "version": "1.0.0",
-  "description": "Lambda function for directory data",
+  "description": "npm package with regular methods to use",
   "main": "index.js",
   "scripts": {
     "eslint": "eslint .",
