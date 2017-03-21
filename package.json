@@ -1,0 +1,29 @@
+{
+  "name": "directory-data",
+  "version": "1.0.0",
+  "description": "Lambda function for directory data",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "mocha": "mocha",
+    "test": "npm run eslint && npm run mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.6.2",
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-zip": "^3.2.0",
+    "lambda-local": "0.0.7",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "eslint": "^3.17.1",
+    "locutus": "^2.0.8",
+    "lodash": "^4.17.4",
+    "request": "^2.79.0"
+  }
+}
+
