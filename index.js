@@ -6,6 +6,8 @@ const strpos = require('locutus/php/strings/strpos');
 const implode = require('locutus/php/strings/implode');
 const similar_text = require('locutus/php/strings/similar_text');
 const round = require('locutus/php/math/round');
+const _ = require('lodash');
+const Promise = require('bluebird');
 
 const normalize = function normalize($string, $type, $suite_numbers) {
   $string = str_replace('&amp;', '', $string);
@@ -876,10 +878,23 @@ const isURL = function isURL(str) {
   return regex .test(str);
 };
 
+const getDirectories = Promise.promisify(function getDirectoriesPromise(rows, done) {
+  if(!rows || !Array.isArray(rows) || rows.length === 0) {
+    return done('No directories to filter');
+  }
+  let directories = rows.map(function getDirectoriesMap(rowItem) {
+    return rowItem.directory;
+  });
+  directories = _.uniq(directories);
+  
+  return done(null, {rows, directories});
+});
+
 exports = module.exports = {
   normalize: normalize,
   verifyNapGp: verifyNapGp,
   isNumeric: isNumeric,
-  isURL: isURL
+  isURL: isURL,
+  getDirectories: getDirectories
 };
 
