@@ -8,4 +8,3 @@ exports = module.exports = {
   isURL: general.isURL,
   getDirectories: require('./lib/getdirectories')
 };
-
