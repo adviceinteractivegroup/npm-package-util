@@ -6,5 +6,6 @@ exports = module.exports = {
   verifyNapGp: require('./lib/verifynapgp'),
   isNumeric: general.isNumeric,
   isURL: general.isURL,
-  getDirectories: require('./lib/getdirectories')
+  getDirectories: require('./lib/getdirectories'),
+  sorensen: require('./lib/sorensen')
 };
