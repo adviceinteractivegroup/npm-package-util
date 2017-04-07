@@ -15,7 +15,7 @@ describe('sorensen', function () {
     assert.equal(sorensen('Advice interactive group', 'advice inter'), 0.7058823529411765);
   });
   
-  it("sorensen should return 0.7058823529411765 when comparing 'Advice interactive group' and 'advice inter'", function () {
+  it("sorensen should return 0.7058823529411765 when comparing 'Advice interactive group' and 'McDonald's'", function () {
     assert.equal(sorensen('Advice interactive group', "McDonald's"), 0);
   });
 });
