@@ -7,5 +7,6 @@ exports = module.exports = {
   isNumeric: general.isNumeric,
   isURL: general.isURL,
   getDirectories: require('./lib/getdirectories'),
-  sorensen: require('./lib/sorensen')
+  sorensen: require('./lib/sorensen'),
+  levenshtein: require('./lib/levenshtein')
 };
