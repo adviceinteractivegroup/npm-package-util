@@ -5,6 +5,12 @@ This library is for using some common methods in all Advice's nodeJS
 
 ## Installation
 
+###### add in your package.json dependencies the following line:
+    "advice-util": "git+ssh://git@github.com:adviceinteractivegroup/npm-package-util.git"
+
+###### and then run
+    npm install
+
 ## Methods
 
 ### normalize
