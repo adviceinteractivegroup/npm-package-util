@@ -8,5 +8,6 @@ exports = module.exports = {
   isURL: general.isURL,
   getDirectories: require('./lib/getdirectories'),
   sorensen: require('./lib/sorensen'),
-  levenshtein: require('./lib/levenshtein')
+  levenshtein: require('./lib/levenshtein'),
+  removeSomeCharacters: require('./lib/removeSomeCharacters')
 };
