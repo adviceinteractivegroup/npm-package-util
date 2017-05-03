@@ -10,6 +10,5 @@ exports = module.exports = {
   getDirectories: require('./lib/getdirectories'),
   sorensen: require('./lib/sorensen'),
   levenshtein: require('./lib/levenshtein'),
-  removeSomeCharactersForEmpty: removeSomeCharacters.removeSomeCharactersForEmpty,
-  removeSomeCharactersForPlus: removeSomeCharacters.removeSomeCharactersForPlus
+  removeSomeCharacters: removeSomeCharacters
 };
