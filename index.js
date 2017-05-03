@@ -1,6 +1,7 @@
 'use strict';
 
 const general = require('./lib/general');
+const removeSomeCharacters = require('./lib/removeSomeCharacters');
 exports = module.exports = {
   normalize: require('./lib/normalize'),
   verifyNapGp: require('./lib/verifynapgp'),
@@ -9,5 +10,5 @@ exports = module.exports = {
   getDirectories: require('./lib/getdirectories'),
   sorensen: require('./lib/sorensen'),
   levenshtein: require('./lib/levenshtein'),
-  removeSomeCharacters: require('./lib/removeSomeCharacters')
+  removeSomeCharacters: removeSomeCharacters
 };
