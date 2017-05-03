@@ -11,6 +11,5 @@ exports = module.exports = {
   sorensen: require('./lib/sorensen'),
   levenshtein: require('./lib/levenshtein'),
   removeSomeCharactersForEmpty: removeSomeCharacters.removeSomeCharactersForEmpty,
-  removeSomeCharactersForPlus: removeSomeCharacters.removeSomeCharactersForPlus,
-  frontier: require('./lib/frontier')
+  removeSomeCharactersForPlus: removeSomeCharacters.removeSomeCharactersForPlus
 };
