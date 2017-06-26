@@ -1,6 +1,6 @@
 'use strict';
 const assert = require('chai').assert;
-const {isNumeric, isURL} = require('../lib/general');
+const {isNumeric, isURL, grep} = require('../lib/general');
 
 describe('general', function() {
   describe('isNumeric', function () {
@@ -54,4 +54,12 @@ describe('general', function() {
       assert.isFalse(isURL('11111'));
     });
   })
+  describe('grep', function () {
+    it("Returns array elements that satisfy the function condition (second parametre)", function () {
+      let result = grep(['hello', 'world', null, '', '!'], Boolean);
+      assert.isArray(result, 'grep result is array');
+      assert.lengthOf(result, 3, 'grep array result lenght equals 3');
+      assert.deepEqual(result, [ 'hello', 'world', '!' ], 'array result must be equal to: [ hello, world, ! ]');
+    });
+  });
 });
