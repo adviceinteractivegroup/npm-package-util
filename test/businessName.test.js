@@ -7,6 +7,9 @@ describe('businessName', function() {
     it('Should remove the words: inc', function () {
       assert.equal(filterStopWords('Advice Interactive inc'), 'Advice Interactive');
     });
+    it('Should remove the words: inc', function () {
+      assert.equal(filterStopWords('Advice Interactive Inc'), 'Advice Interactive');
+    });
     it('Should remove words: and, &', function () {
       assert.equal(filterStopWords('Advice and Interactive & Hibu'), 'Advice Interactive Hibu');
     });
