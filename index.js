@@ -2,7 +2,7 @@
 
 const {isNumeric, isURL, grep} = require('./lib/general');
 const {filterStopWords} = require('./lib/businessName');
-const {getAbreviatedState, normalizeSuite} = require('./lib/address');
+const {getAbreviatedState, normalizeSuite, normalizeCompass} = require('./lib/address');
 const {normalizePhone} = require('./lib/phone');
 const removeSomeCharacters = require('./lib/removeSomeCharacters');
 exports = module.exports = {
@@ -12,6 +12,7 @@ exports = module.exports = {
   getAbreviatedState,
   normalizePhone,
   normalizeSuite,
+  normalizeCompass,
   isNumeric,
   isURL,
   grep,
