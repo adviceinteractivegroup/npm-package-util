@@ -1,6 +1,6 @@
 'use strict';
 const assert = require('chai').assert;
-const {isNumeric, isURL, grep} = require('../lib/general');
+const {isNumeric, isURL, grep, isString} = require('../lib/general');
 
 describe('general', function() {
   describe('isNumeric', function () {
@@ -60,6 +60,31 @@ describe('general', function() {
       assert.isArray(result, 'grep result is array');
       assert.lengthOf(result, 3, 'grep array result lenght equals 3');
       assert.deepEqual(result, [ 'hello', 'world', '!' ], 'array result must be equal to: [ hello, world, ! ]');
+    });
+  });
+  describe('isString', function () {
+    it("'this is a test' should be a String", function () {
+      assert.isTrue(isString('this is a test'));
+    });
+    
+    it("'test2' should be a String", function () {
+      assert.isTrue(isString('test2'));
+    });
+    
+    it("'1.5' should NOT be a String", function () {
+      assert.isTrue(isString('1.5'));
+    });
+
+    it("'15' should NOT be a String", function () {
+      assert.isTrue(isString('15'));
+    });
+    
+    it("'.' should be a String", function () {
+      assert.isTrue(isString('.'));
+    });
+    
+    it("'' should NOT be a String", function () {
+      assert.isFalse(isString(''));
     });
   });
 });
