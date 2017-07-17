@@ -1,6 +1,6 @@
 'use strict';
 const assert = require('chai').assert;
-const {getAbreviatedState, normalizeSuite, normalizeCompass} = require('../lib/address');
+const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType} = require('../lib/address');
 
 describe('address', function() {
   describe('getAbreviatedState', function () {
@@ -37,6 +37,20 @@ describe('address', function() {
     });
     it('Normalizing suite, should return same string', function () {
       assert.equal(normalizeCompass('Antioquia'), 'Antioquia');
+    });
+  });
+  describe('normalizeStreetType', function () {
+    it('Normalizing Compass should replace \'St\', by \'st\'', function () {
+      assert.equal(normalizeStreetType('61 East South East Madison St. ste 2000'), '61 East South East Madison st ste 2000');
+    });
+    it('Normalizing Compass should replace \'valley. valley\', by \'vly vly\'', function () {
+      assert.equal(normalizeStreetType('61 s Madison valley. valley Ste 2000'), '61 s Madison vly vly Ste 2000');
+    });
+    it('Normalizing Compass should replace \'St.\', by \'st\'', function () {
+      assert.equal(normalizeStreetType('61 Northwest Madison St. Ste. 2000'), '61 Northwest Madison st Ste. 2000');
+    });
+    it('Normalizing suite, should return same string', function () {
+      assert.equal(normalizeStreetType('Antioquia'), 'Antioquia');
     });
   });
 });
