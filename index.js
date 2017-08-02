@@ -5,6 +5,7 @@ const {filterStopWords} = require('./lib/businessName');
 const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType} = require('./lib/address');
 const {normalizePhone} = require('./lib/phone');
 const removeSomeCharacters = require('./lib/removeSomeCharacters');
+const legacyClientToClient = require('./lib/legacyClientToClient');
 exports = module.exports = {
   normalize: require('./lib/normalize'),
   verifyNapGp: require('./lib/verifynapgp'),
@@ -23,5 +24,6 @@ exports = module.exports = {
   levenshtein: require('./lib/levenshtein'),
   removeSomeCharacters: removeSomeCharacters,
   getProxy: require('./lib/getProxy'),
-  stringExtensions: require('./lib/stringExtensions')
+  stringExtensions: require('./lib/stringExtensions'),
+  legacyClientToClient
 };
