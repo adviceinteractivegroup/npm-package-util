@@ -20,7 +20,6 @@ const legacyClient = require('../test/data_mock/legacyClient');
     });
     it('the legacyClientToClient NOT should return structure legacy to client', function() {
       let result = legacyClientToClient.legacyClientToClient({address:'356 AV', phone: '1111-1111-1111'});
-      should.exist(result);
-      should.exist(result.error);
+      should.not.exist(result);
     });
   });
