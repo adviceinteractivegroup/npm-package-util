@@ -22,5 +22,6 @@ exports = module.exports = {
   levenshtein: require('./lib/levenshtein'),
   removeSomeCharacters: removeSomeCharacters,
   getProxy: require('./lib/getProxy'),
+  getUserAgent: require('./lib/getUserAgent'),
   stringExtensions: require('./lib/stringExtensions')
 };
