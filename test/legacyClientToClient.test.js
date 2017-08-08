@@ -18,8 +18,11 @@ const legacyClient = require('../test/data_mock/legacyClient');
       should.exist(result);
       assert.isObject(result);
     });
-    it('the legacyClientToClient NOT should return structure legacy to client', function() {
+    it('the legacyClientToClient should return the same structure as it received', function() {
       let result = legacyClientToClient({address:'356 AV', phone: '1111-1111-1111'});
-      should.not.exist(result);
+      should.exist(result);
+      assert.isObject(result);
+      assert.propertyVal(result, 'address', '356 AV');
+      assert.propertyVal(result, 'phone', '1111-1111-1111');
     });
   });
