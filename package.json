@@ -23,7 +23,6 @@
     "eslint": "^3.17.1",
     "locutus": "^2.0.8",
     "lodash": "^4.17.4",
-    "random-fake-useragent": "^0.1.0",
     "request": "^2.79.0"
   }
 }
