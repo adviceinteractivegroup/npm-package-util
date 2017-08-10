@@ -6,9 +6,16 @@ const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType
 const {normalizePhone} = require('./lib/phone');
 const removeSomeCharacters = require('./lib/removeSomeCharacters');
 const {legacyClientToClient} = require('./lib/legacyClientToClient');
+const {getUserAgent, getReferer} = require('./lib/browserHelpers');
+
 exports = module.exports = {
   normalize: require('./lib/normalize'),
   verifyNapGp: require('./lib/verifynapgp'),
+  getDirectories: require('./lib/getdirectories'),
+  sorensen: require('./lib/sorensen'),
+  levenshtein: require('./lib/levenshtein'),
+  getProxy: require('./lib/getProxy'),
+  stringExtensions: require('./lib/stringExtensions'),
   filterStopWords,
   getAbreviatedState,
   normalizePhone,
@@ -18,12 +25,8 @@ exports = module.exports = {
   isNumeric,
   isURL,
   grep,
-  getDirectories: require('./lib/getdirectories'),
-  sorensen: require('./lib/sorensen'),
-  levenshtein: require('./lib/levenshtein'),
-  removeSomeCharacters: removeSomeCharacters,
-  getProxy: require('./lib/getProxy'),
-  getUserAgent: require('./lib/getUserAgent'),
-  stringExtensions: require('./lib/stringExtensions'),
+  getUserAgent,
+  getReferer,
+  removeSomeCharacters,
   legacyClientToClient
 };
