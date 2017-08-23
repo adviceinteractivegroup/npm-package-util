@@ -7,6 +7,7 @@ const {normalizePhone} = require('./lib/phone');
 const removeSomeCharacters = require('./lib/removeSomeCharacters');
 const {legacyClientToClient} = require('./lib/legacyClientToClient');
 const {getUserAgent, getReferer} = require('./lib/browserHelpers');
+const {getAddressScore} = require('./lib/addressScore');
 
 exports = module.exports = {
   normalize: require('./lib/normalize'),
@@ -28,5 +29,6 @@ exports = module.exports = {
   getUserAgent,
   getReferer,
   removeSomeCharacters,
-  legacyClientToClient
+  legacyClientToClient,
+  getAddressScore
 };
