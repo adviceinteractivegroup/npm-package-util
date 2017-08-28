@@ -1,7 +1,7 @@
 'use strict';
 const should = require('chai').should();
 const { assert, expect } = require('chai');
-const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType, getParseAddress} = require('../lib/address');
+const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType, parseAddress} = require('../lib/address');
 
 describe('address', function() {
   describe('getAbreviatedState', function () {
@@ -55,9 +55,9 @@ describe('address', function() {
     });
   });
 
-  describe('getParseAddress', function () {
+  describe('parseAddress', function () {
     it('should return a parse of the address', function fngetParseAddress(done) {
-      getParseAddress('7850 Collin Mckinney pkwy, Mckinney, Texas, 75070')
+      parseAddress('7850 Collin Mckinney pkwy, Mckinney, Texas, 75070')
         .then(result => {
           should.exist(result);
           assert.isObject(result);
@@ -77,7 +77,7 @@ describe('address', function() {
         });
     });
     it('should return a parse of the address without street', function fngetParseAddress(done) {
-      getParseAddress('Mckinney, Texas, 75070')
+      parseAddress('Mckinney, Texas, 75070')
         .then(result => {
           should.exist(result);
           assert.isObject(result);
@@ -96,7 +96,7 @@ describe('address', function() {
         });
     });
     it('should NOT return a parse of the address', function fngetParseAddress(done) {
-      getParseAddress('nfo@TLCTransitionsAZ.com')
+      parseAddress('nfo@TLCTransitionsAZ.com')
         .then(result => {
           should.exist(result);
           assert.isObject(result);
