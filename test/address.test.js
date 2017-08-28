@@ -1,6 +1,7 @@
 'use strict';
-const assert = require('chai').assert;
-const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType} = require('../lib/address');
+const should = require('chai').should();
+const { assert, expect } = require('chai');
+const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType, parseAddress} = require('../lib/address');
 
 describe('address', function() {
   describe('getAbreviatedState', function () {
@@ -51,6 +52,63 @@ describe('address', function() {
     });
     it('Normalizing suite, should return same string', function () {
       assert.equal(normalizeStreetType('Antioquia'), 'Antioquia');
+    });
+  });
+
+  describe('parseAddress', function () {
+    it('should return a parse of the address', function fngetParseAddress(done) {
+      parseAddress('7850 Collin Mckinney pkwy, Mckinney, Texas, 75070')
+        .then(result => {
+          should.exist(result);
+          assert.isObject(result);
+          should.exist(result.street_address1);
+          should.exist(result.city);
+          should.exist(result.postal_code);
+          should.exist(result.state);
+          assert.propertyVal(result, 'street_address1', '7850 Collin Mckinney pkwy');
+          assert.propertyVal(result, 'city', 'Mckinney');
+          assert.propertyVal(result, 'state', 'TX');
+          assert.propertyVal(result, 'postal_code', '75070');
+          done();
+        })
+        .catch(err => {
+          should.not.exist(err);
+          done();
+        });
+    });
+    it('should return a parse of the address without street', function fngetParseAddress(done) {
+      parseAddress('Mckinney, Texas, 75070')
+        .then(result => {
+          should.exist(result);
+          assert.isObject(result);
+          expect(result.street_address1).to.equal(null);
+          should.exist(result.city);
+          should.exist(result.postal_code);
+          should.exist(result.state);
+          assert.propertyVal(result, 'city', 'Mckinney');
+          assert.propertyVal(result, 'state', 'TX');
+          assert.propertyVal(result, 'postal_code', '75070');
+          done();
+        })
+        .catch(err => {
+          should.not.exist(err);
+          done();
+        });
+    });
+    it('should NOT return a parse of the address', function fngetParseAddress(done) {
+      parseAddress('nfo@TLCTransitionsAZ.com')
+        .then(result => {
+          should.exist(result);
+          assert.isObject(result);
+          expect(result.street_address1).to.equal(null);
+          expect(result.state).to.equal(null);
+          expect(result.postal_code).to.equal(null);
+          done();
+        })
+        .catch(err => {
+          should.not.exist(err);
+          done();
+        });
     });
   });
 });
