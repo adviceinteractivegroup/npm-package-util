@@ -2,12 +2,12 @@
 
 const {isNumeric, isURL, grep} = require('./lib/general');
 const {filterStopWords} = require('./lib/businessName');
-const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType} = require('./lib/address');
+const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType, getParseAddress} = require('./lib/address');
 const {normalizePhone} = require('./lib/phone');
 const removeSomeCharacters = require('./lib/removeSomeCharacters');
 const {legacyClientToClient} = require('./lib/legacyClientToClient');
 const {getUserAgent, getReferer} = require('./lib/browserHelpers');
-const {getAddressScore, getParseAddress} = require('./lib/addressScore');
+const {getAddressScore} = require('./lib/addressScore');
 const {getPhoneScore} = require('./lib/phoneScore');
 
 exports = module.exports = {
