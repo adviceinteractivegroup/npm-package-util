@@ -1,7 +1,7 @@
 'use strict';
 const should = require('chai').should();
 const {assert, expect } = require('chai');
-const {frontier, calculateBusinessScores, setParseDirectoriesAddress, getBestResult} = require('../lib/frontier');
+const {frontier, calculateBusinessScores, parseDirectoryBusinessesAddress, getBestResult} = require('../lib/frontier');
 const client = require('./data_mock/client');
 const query = 'https://www.advicelocal.com/';
 
@@ -125,14 +125,14 @@ describe('calculateBusinessScores', () => {
   });
 });
 
-describe('setParseDirectoriesAddress', () => {
+describe('parseDirectoryBusinessesAddress', () => {
   it('should return a correct Parse address', function frontierIt(done) {
     let directoriesArray =  [ { query: 'https://www.advicelocal.com/',
       name: 'Flowers Unlimited, Inc.',
       url: 'https://www.advicelocal.com/contact-us/',
       address: '5532 66th Street North, Saint Petersburg, FL, 33709',
       phone: '(727) 384-5900' } ];
-    setParseDirectoriesAddress(directoriesArray)
+    parseDirectoryBusinessesAddress(directoriesArray)
     .then(result => {
       should.exist(result);
       assert.isObject(result[0]);
@@ -154,7 +154,7 @@ describe('setParseDirectoriesAddress', () => {
       url: 'https://www.advicelocal.com/contact-us/',
       address: null,
       phone: '(727) 384-5900' } ];
-    setParseDirectoriesAddress(directoriesArray)
+    parseDirectoryBusinessesAddress(directoriesArray)
     .then(result => {
       should.not.exist(result);
       done();
