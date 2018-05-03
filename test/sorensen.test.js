@@ -4,7 +4,7 @@ const sorensen = require('../lib/sorensen');
 
 describe('sorensen', function () {
   it("sorensen should return 0.47368421052631576 when comparing 'xxxxxxxxxxxxxxxxxxxx' to 'txxxxtttttxxxxxxxttt'", function () {
-    assert.equal(sorensen('xxxxxxxxxxxxxxxxxxxx', 'txxxxtttttxxxxxxxttt'), 0.47368421052631576); //disagree with this result
+    assert.equal(sorensen('xxxxxxxxxxxxxxxxxxxx', 'txxxxtttttxxxxxxxttt'), 0.47368421052631576);
   });
   
   it("sorensen should return 0.8 when comparing 'Advice interactive group' and 'advice interactive'", function () {
