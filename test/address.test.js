@@ -57,7 +57,7 @@ describe('address', function() {
 
   describe('parseAddress', function () {
     it('should return a parse of the address', function fngetParseAddress(done) {
-      parseAddress('7850 Collin Mckinney pkwy, Mckinney, Texas, 75070')
+      parseAddress('7850 Collin Mckinney pkwy, Mckinney, West Virginia, 75070')
         .then(result => {
           should.exist(result);
           assert.isObject(result);
@@ -67,7 +67,7 @@ describe('address', function() {
           should.exist(result.state);
           assert.propertyVal(result, 'street_address1', '7850 Collin Mckinney pkwy');
           assert.propertyVal(result, 'city', 'Mckinney');
-          assert.propertyVal(result, 'state', 'TX');
+          assert.propertyVal(result, 'state', 'WV');
           assert.propertyVal(result, 'postal_code', '75070');
           done();
         })
