@@ -29,7 +29,7 @@ module.exports = {
     'no-unreachable': 2,
     'use-isnan': 2,
     'valid-typeof': 2,
-    'complexity': [2, 10],
+    'complexity': [2, 15],
     'consistent-return': 0,
     'curly': 2,
     'default-case': 2,
