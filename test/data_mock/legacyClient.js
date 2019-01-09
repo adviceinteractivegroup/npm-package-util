@@ -40,7 +40,7 @@ exports = module.exports = {
   'keyword4_location': '',
   'keyword5_location': '',
   'notes': 'sales-rep-name: Charley Bergs \nsales-rep-email: charley.bergs@hibu.com\ncontact-name: Tom Pennings\ncontact-email: tpennings1@new.rr.com\ncontactphone: 920-858-7188\naddress-and-service-radius: Kaukauna, WI, USA - 35mi | \nlanguages: English\ncategory: Upholstery Shop\nbusiness-description-short: Heart Of The Valley Chem-Dry provides residential and commercial carpet and upholstery cleaning and in-home consultations to the Kankauna and surrounding areas. \nvideo-link: No Customer Video Provided\ncall_for_appt: true',
-  'hide': 'false',
+  'hide': 'true',
   'isInactive': true,
   'createdAt': '2016-01-20T13:11:26.000Z',
   'deletedAt': null,
