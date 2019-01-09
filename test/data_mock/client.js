@@ -10,7 +10,7 @@ exports = module.exports = {
   country: 'US',
   website: 'http://www.order-flowers-petersburg-florist.com/',
   hours: '',
-  hide: '',
+  hide: false,
   phone: '(727) 384-5900',
   fax: '',
   email: '',

@@ -281,8 +281,8 @@ describe('calculateBusinessScores', () => {
     assert.propertyVal(result, 'address', '5532 66th Street North, Saint Petersburg, FL, 33709');
     assert.propertyVal(result, 'addrScore', 1);
     assert.propertyVal(result, 'phoneScore', 1);
-    assert.propertyVal(result, 'nameSorensenScore', 0.9142857142857143);
-    assert.propertyVal(result, 'nameLevenshteinScore', 3);
+    assert.propertyVal(result, 'nameSorensenScore', 1);
+    assert.propertyVal(result, 'nameLevenshteinScore', 0);
     assert.isObject(result.parseAddress);
   });
   it('should return a score of addrScore:0', () => {
@@ -304,8 +304,8 @@ describe('calculateBusinessScores', () => {
     assert.propertyVal(result, 'address', '5532 66th Street North, Saint Petersburg, FL, 33709');
     assert.propertyVal(result, 'addrScore', 0);
     assert.propertyVal(result, 'phoneScore', 1);
-    assert.propertyVal(result, 'nameSorensenScore', 0.9142857142857143);
-    assert.propertyVal(result, 'nameLevenshteinScore', 3);
+    assert.propertyVal(result, 'nameSorensenScore', 1);
+    assert.propertyVal(result, 'nameLevenshteinScore', 0);
     assert.isObject(result.parseAddress);
   });
   it('should return a score of null', () => {

@@ -16,6 +16,7 @@ const legacyClient = require('../test/data_mock/legacyClient');
     it('the legacyClientToClient should return structure legacy to client', function() {
       let result = legacyClientToClient(legacyClient);
       should.exist(result);
+      assert.propertyVal(result, 'hide', true);
       assert.isObject(result);
     });
     it('the legacyClientToClient should return the same structure as it received', function() {
