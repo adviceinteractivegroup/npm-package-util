@@ -65,8 +65,8 @@ describe('address', function() {
           should.exist(result.city);
           should.exist(result.postal_code);
           should.exist(result.state);
-          assert.propertyVal(result, 'street_address1', '7850 Collin Mckinney pkwy');
-          assert.propertyVal(result, 'city', 'Mckinney');
+          assert.propertyVal(result, 'street_address1', '7850 collin mckinney pkwy');
+          assert.propertyVal(result, 'city', 'mckinney');
           assert.propertyVal(result, 'state', 'WV');
           assert.propertyVal(result, 'postal_code', '75070');
           done();
@@ -85,7 +85,7 @@ describe('address', function() {
           should.exist(result.city);
           should.exist(result.postal_code);
           should.exist(result.state);
-          assert.propertyVal(result, 'city', 'Mckinney');
+          assert.propertyVal(result, 'city', 'mckinney');
           assert.propertyVal(result, 'state', 'TX');
           assert.propertyVal(result, 'postal_code', '75070');
           done();

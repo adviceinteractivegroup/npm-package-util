@@ -97,7 +97,7 @@ describe('frontier', () => {
         query: 'https://www.xxx.com/',
         name: 'Restoration 1 of Wilmington',
         url: 'https://www.xxx.com/contact-us/',
-        address: '107 Island Mimosa Dr Carolina Beach, NC 28428',
+        address: '107 Island Mimosa Dr, Carolina Beach, NC 28428',
         phone: '(910) 684-4053'
       },
       {
