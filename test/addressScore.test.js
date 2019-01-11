@@ -9,14 +9,14 @@ describe('getAddressScore', () => {
       street_address1: '7850 Collin Mckinney pkwy',
       city: 'Mckinney',
       state: 'TX',
-      postal_code: '75070',
+      postalCode: '75070',
       country: null
     };
     let add2 = { 
       street_address1: '7850 Collin Mckinney pkwy',
       city: 'Mckinney',
       state: 'TX',
-      postal_code: '75070',
+      postalCode: '75070',
       country: null
     };
     let result = getAddressScore(add1, add2);
@@ -28,14 +28,14 @@ describe('getAddressScore', () => {
       street_address1: '',
       city: 'Mckinney',
       state: 'Texas',
-      postal_code: '75070',
+      postalCode: '75070',
       country: null 
     };
     let add2 = { 
       street_address1: '14747 N  Blvd',
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null
     };
     let result = getAddressScore(add1, add2);
@@ -47,7 +47,7 @@ describe('getAddressScore', () => {
       street_address1: '7850 Collin Mckinney pkwy',
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null,
       hide: true
     };
@@ -55,7 +55,7 @@ describe('getAddressScore', () => {
       street_address1: '',
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null
     };
     let result = getAddressScore(add1, add2);
@@ -65,14 +65,14 @@ describe('getAddressScore', () => {
   it('should return score = 1 because hide addr = true & all addr segments to score are set to true', ()=>{
     let add1 = { 
       hideRules : {
-        postal_code : true,
+        postalCode : true,
         city: true,
         state: true
       },
       street_address1: '7850 Collin Mckinney pkwy',
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null,
       hide: true
     };
@@ -80,7 +80,7 @@ describe('getAddressScore', () => {
       street_address1: null,
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null
     };
     let result = getAddressScore(add1, add2);
@@ -90,14 +90,14 @@ describe('getAddressScore', () => {
   it('should return score = 0.6~ because hide addr = true & all addr segments to score are = true, but addr2.state != addr1.state', ()=>{
     let add1 = { 
       hideRules : {
-        postal_code : true,
+        postalCode : true,
         city: true,
         state: true
       },
       street_address1: '7850 Collin Mckinney pkwy',
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null,
       hide: true
     };
@@ -105,7 +105,7 @@ describe('getAddressScore', () => {
       street_address1: null,
       city: 'Scottsdale',
       state: null,
-      postal_code: '85260',
+      postalCode: '85260',
       country: null
     };
     let result = getAddressScore(add1, add2);
@@ -115,14 +115,14 @@ describe('getAddressScore', () => {
   it('should return score = 0.9~ because hide addr = true & addr2.street != null, so it gets a small penalization', ()=>{
     let add1 = { 
       hideRules : {
-        postal_code : true,
+        postalCode : true,
         city: true,
         state: true
       },
       street_address1: null,
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null,
       hide: true
     };
@@ -130,7 +130,7 @@ describe('getAddressScore', () => {
       street_address1: '7850 Collin Mckinney pkwy',
       city: 'Scottsdale',
       state: 'AZ',
-      postal_code: '85260',
+      postalCode: '85260',
       country: null
     };
     let result = getAddressScore(add1, add2);
@@ -140,7 +140,7 @@ describe('getAddressScore', () => {
   it('should return score = 0.9. hide addr = true & segment to score = city & it is slightly different in add1 & addr2', ()=>{
     let add1 = { 
       hideRules : {
-        postal_code : false,
+        postalCode : false,
         city: true,
         state: false
       },
