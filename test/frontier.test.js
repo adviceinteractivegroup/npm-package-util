@@ -167,7 +167,7 @@ describe('frontier', () => {
         query: 'http://www.brownbook.net/businesses/?setcountry_ie=us&filter=us&p=1&tag=restoration+1+of+wilmington',
         name: 'RESTORATION 1 OF WILMINGTON',
         url: 'http://www.brownbook.net/business/42212298/restoration-1-of-wilmington',
-        address: '107 ISLAND MIMOSA DR., CAROLINA BEACH, NC , 28428',
+        address: '107 ISLAND MIMOSA DR., Wilmington, NC 28405',
         phone: '(910) 684-4053'
       },
       {
@@ -176,15 +176,22 @@ describe('frontier', () => {
         url: 'http://www.brownbook.net/business/44475982/restoration-1-of-wilmington',
         address: 'Wilmington, NC 28405',
         phone: '(910)684-4053'
-      }
+      },
+      {
+        query: 'http://www.brownbook.net/businesses/?setcountry_ie=us&filter=us&p=1&tag=restoration+1+of+wilmington',
+        name: 'RESTORATION 1 OF WILMINGTON',
+        url: 'http://www.brownbook.net/business/42212298/restoration-1-of-wilmington',
+        address: '107 ISLAND MIMOSA DR., Wilmington, NC 28405',
+        phone: '(910) 684-4053'
+      },
     ];
     const newClient = Object.assign({}, client);
     newClient.hide = true;
     newClient.businessName = 'RESTORATION 1 OF WILMINGTON';
-    newClient.city = 'CAROLINA BEACH, , 28428';
+    newClient.city = 'Wilmington';
     newClient.state = 'NC';
     newClient.zipcode = '28405';
-    newClient.street1 = '107 ISLAND MIMOSA DR., CAROLINA BEACH, NC , 28428';
+    newClient.street1 = '107 ISLAND MIMOSA DR.';
     let data = {
       client: newClient,
       resultsArray
