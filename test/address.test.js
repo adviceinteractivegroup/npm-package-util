@@ -76,6 +76,26 @@ describe('address', function() {
           done();
         });
     });
+    it('should parse the state correctlry', function fngetParseAddress(done) {
+      parseAddress('7850 Collin Mckinney pkwy, Mckinney, West Virginia 75070')
+        .then(result => {
+          should.exist(result);
+          assert.isObject(result);
+          should.exist(result.street_address1);
+          should.exist(result.city);
+          should.exist(result.postal_code);
+          should.exist(result.state);
+          assert.propertyVal(result, 'street_address1', '7850collinmckinneypkwy');
+          assert.propertyVal(result, 'city', 'mckinney');
+          assert.propertyVal(result, 'state', 'WV');
+          assert.propertyVal(result, 'postal_code', '75070');
+          done();
+        })
+        .catch(err => {
+          should.not.exist(err);
+          done();
+        });
+    });
     it('should return a parse of the address, extracting the correct part of the postal code', function fngetParseAddress(done) {
       parseAddress('7850 Collin Mckinney pkwy, Mckinney, West Virginia, 75070-123412342314')
         .then(result => {
