@@ -1,6 +1,6 @@
 {
   "name": "advice-util",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "npm package with regular methods to use",
   "main": "index.js",
   "scripts": {
