@@ -360,7 +360,7 @@ const multipleHoursOverlapedWednesday = {
 }
 
 /** Error: Wednesday label is wrong */
-const invalidDaysLabel = {
+const invalidOpenDayLabelHours = {
   periods: [{
       openDay: 'MONDAY',
       openTime: '08:00',
@@ -389,6 +389,52 @@ const invalidDaysLabel = {
       openDay: 'FTIDAY',
       openTime: '08:00',
       closeDay: 'FRIDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'SATURDAY',
+      openTime: '08:00',
+      closeDay: 'SATURDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'SUNDAY',
+      openTime: '08:00',
+      closeDay: 'SUNDAY',
+      closeTime: '19:00'
+    }
+  ]
+}
+
+const invalidCloseDayLabelHours = {
+  periods: [{
+      openDay: 'MONDAY',
+      openTime: '08:00',
+      closeDay: 'MONDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'TUESDAY',
+      openTime: '08:00',
+      closeDay: 'TUESDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'WEDNESDAY',
+      openTime: '08:00',
+      closeDay: 'WEDNESDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'THURSDAY',
+      openTime: '08:00',
+      closeDay: 'THURSDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'FRIDAY',
+      openTime: '08:00',
+      closeDay: 'FTIDAY',
       closeTime: '19:00'
     },
     {
@@ -446,11 +492,15 @@ const invalidFormat = [{
   }
 ]
 
+/** Periods Array is empty */
+const emptyHours = {
+  periods: []
+}
 // ============================================================================
 // Response Hours
 // ============================================================================
 
-const ReponseMultipleNotSplited = {
+const reponseMultipleNotSplited = {
   periods: [{
       openDay: 'MONDAY',
       openTime: '08:00',
@@ -501,7 +551,9 @@ module.exports = {
   basicHoursWrongTime,
   multipleHours,
   multipleHoursOverlapedWednesday,
-  invalidDaysLabel,
+  invalidOpenDayLabelHours,
+  invalidCloseDayLabelHours,
   invalidFormat,
-
+  reponseMultipleNotSplited,
+  emptyHours
 }
