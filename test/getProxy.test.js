@@ -36,7 +36,7 @@ describe('getProxy', function () {
         assert.propertyVal(result, 'username', 'localsitesubmit');
         assert.propertyVal(result, 'password', 'jd829ka658njav1j');
         assert.propertyVal(result, 'server', 'cloudsearch.lssdev.com');
-        assert.propertyVal(result, 'port', 80);
+        assert.propertyVal(result, 'port', 27281);
         done();
       })
       .catch(err=>{
