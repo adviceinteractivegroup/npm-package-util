@@ -45,8 +45,9 @@ describe('hours', () => {
     });
     describe('getGoogleHours', () => {
         it('Basic hours, should return the same object', async () => {
-            const result = await getHours(basicHours, 'google'); expect(result).to.be.equal(basicHours);
-     });
+            const result = await getHours(basicHours, 'google');
+            expect(result).to.be.equal(basicHours);
+        });
         it('Multiple hours, should return the same object', async () => {
             const result = await getHours(multipleHours, 'google');
             expect(result).to.be.equal(multipleHours);
