@@ -5,7 +5,7 @@ const client = require('../test/data_mock/client');
 const legacyClient = require('../test/data_mock/legacyClient'); 
 
   // ============================================================================
-  // test ecah of the functions used
+  // test each of the functions used
   // ============================================================================
   describe('legacyClientToClient', () => {
     it('the legacyClientToClient should return structure client', function() {
