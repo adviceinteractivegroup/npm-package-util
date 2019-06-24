@@ -50,8 +50,76 @@ const basicHours = {
   ]
 }
 
+/** Error: Time wrong format */
+const basicHoursWrongTimeFormat = {
+  periods: [{
+      openDay: 'MONDAY',
+      openTime: '08:00',
+      closeDay: 'MONDAY',
+      closeTime: '28:00'
+    },
+    {
+      openDay: 'TUESDAY',
+      openTime: '08:00',
+      closeDay: 'TUESDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'WEDNESDAY',
+      openTime: '08:00',
+      closeDay: 'WEDNESDAY',
+      closeTime: '19:99'
+    },
+    {
+      openDay: 'THURSDAY',
+      openTime: '08:00',
+      closeDay: 'THURSDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'FRIDAY',
+      openTime: '08:00',
+      closeDay: 'FRIDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'SATURDAY',
+      openTime: '08:00',
+      closeDay: 'SATURDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'SUNDAY',
+      openTime: '08:00',
+      closeDay: 'SUNDAY',
+      closeTime: '19:00'
+    }
+  ]
+}
+
+/** Success: Basic format */
+const incompleteRangeObject = {
+  periods: [{
+      openDay: 'MONDAY',
+      closeDay: 'MONDAY',
+      closeTime: '19:00'
+    },
+    {
+      openTime: '08:00',
+      closeDay: 'MONDAY',
+      closeTime: '19:00'
+    },
+    {
+      openDay: 'WEDNESDAY',
+      openTime: '08:00',
+      closeDay: 'MONDAY',
+      closeTime: '19:00'
+    }
+  ]
+}
+
 /** Error: In thursday the closeTime is higher than openTime */
-const basicHoursWrongTime = {
+const basicHoursCloseDayLower = {
   periods: [{
       openDay: 'MONDAY',
       openTime: '08:00',
@@ -359,7 +427,7 @@ const multipleHoursOverlapedWednesday = {
   ]
 }
 
-/** Error: Wednesday label is wrong */
+/** Error: WEDNESDAYy label is wrong */
 const invalidOpenDayLabelHours = {
   periods: [{
       openDay: 'MONDAY',
@@ -406,6 +474,7 @@ const invalidOpenDayLabelHours = {
   ]
 }
 
+/** Error: FRIDAY label is wrong */
 const invalidCloseDayLabelHours = {
   periods: [{
       openDay: 'MONDAY',
@@ -453,7 +522,8 @@ const invalidCloseDayLabelHours = {
 }
 
 /** Error: Doen't have "periods" var */
-const invalidFormat = [{
+const invalidFormat = [
+  {
     openDay: 'MONDAY',
     openTime: '08:00',
     closeDay: 'MONDAY',
@@ -548,7 +618,9 @@ const reponseMultipleNotSplited = {
 
 module.exports = {
   basicHours,
-  basicHoursWrongTime,
+  basicHoursWrongTimeFormat,
+  incompleteRangeObject,
+  basicHoursCloseDayLower,
   multipleHours,
   multipleHoursOverlapedWednesday,
   invalidOpenDayLabelHours,

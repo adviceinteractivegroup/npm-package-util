@@ -1,6 +1,8 @@
 'use strict';
 const chai = require('chai');
-const { expect } = require('chai');
+const {
+    expect
+} = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 
@@ -9,7 +11,9 @@ const {
 } = require('../lib/hours');
 const {
     basicHours,
-    basicHoursWrongTime,
+    basicHoursWrongTimeFormat,
+    incompleteRangeObject,
+    basicHoursCloseDayLower,
     multipleHours,
     multipleHoursOverlapedWednesday,
     invalidOpenDayLabelHours,
@@ -42,6 +46,12 @@ describe('hours', () => {
         it('empty hours array, should fail by format', async () => {
             await getHours(emptyHours, 'google').should.be.rejectedWith('Hours format Invalid');
         });
+        it('wrong time format, should fail with two errors (28:00, 19:99)', async () => {
+            await getHours(basicHoursWrongTimeFormat, 'google').should.be.rejectedWith('The closeTime "28:00" has invalid format, it must be (HH:MM); The closeTime "19:99" has invalid format, it must be (HH:MM); ');
+        });
+        it('invlid object format, should fail', async () => {
+            await getHours(incompleteRangeObject, 'google').should.be.rejectedWith('"openTime" property is missing; "openDay" property is missing; The openDay "undefined" and closeDay "MONDAY" must be equal; The openDay "WEDNESDAY" and closeDay "MONDAY" must be equal; ');
+        });
     });
     describe('getGoogleHours', () => {
         it('Basic hours, should return the same object', async () => {
@@ -56,13 +66,13 @@ describe('hours', () => {
             await getHours(multipleHoursOverlapedWednesday, 'google').should.be.rejectedWith('WEDNESDAY: 10:00 is between (08:00 - 11:00) range');
         });
         it('Basic hours, openTime > closeTime, should fail', async () => {
-            await getHours(basicHoursWrongTime, 'google').should.be.rejectedWith('THURSDAY: The openTime 19:00 must not be higher than closeTime 08:00');
+            await getHours(basicHoursCloseDayLower, 'google').should.be.rejectedWith('THURSDAY: The openTime 19:00 must not be higher than closeTime 08:00');
         });
         it('Basic hours, wrong open day label, should fail', async () => {
-            await getHours(invalidOpenDayLabelHours, 'google').should.be.rejectedWith('The open day "WEDNESDAYy" is invalid');
+            await getHours(invalidOpenDayLabelHours, 'google').should.be.rejectedWith('The openDay "WEDNESDAYy" is invalid; ');
         });
         it('Basic hours, wrong close day label, should fail', async () => {
-            await getHours(invalidCloseDayLabelHours, 'google').should.be.rejectedWith('The close day "FTIDAY" is invalid');
+            await getHours(invalidCloseDayLabelHours, 'google').should.be.rejectedWith('The closeDay "FTIDAY" is invalid; ');
         });
     });
     describe('getOtherTemplatesHours', () => {
@@ -78,13 +88,13 @@ describe('hours', () => {
             await getHours(multipleHoursOverlapedWednesday, 'yelp').should.be.rejectedWith('WEDNESDAY: 10:00 is between (08:00 - 11:00) range');
         });
         it('Basic hours, openTime > closeTime, should fail', async () => {
-            await getHours(basicHoursWrongTime, 'yelp').should.be.rejectedWith('THURSDAY: The openTime 19:00 must not be higher than closeTime 08:00');
+            await getHours(basicHoursCloseDayLower, 'yelp').should.be.rejectedWith('THURSDAY: The openTime 19:00 must not be higher than closeTime 08:00');
         });
         it('Basic hours, wrong open day label, should fail', async () => {
-            await getHours(invalidOpenDayLabelHours, 'yelp').should.be.rejectedWith('The open day "WEDNESDAYy" is invalid');
+            await getHours(invalidOpenDayLabelHours, 'yelp').should.be.rejectedWith('The openDay "WEDNESDAYy" is invalid; ');
         });
         it('Basic hours, wrong close day label, should fail', async () => {
-            await getHours(invalidCloseDayLabelHours, 'yelp').should.be.rejectedWith('The close day "FTIDAY" is invalid');
+            await getHours(invalidCloseDayLabelHours, 'yelp').should.be.rejectedWith('The closeDay "FTIDAY" is invalid; ');
         });
     });
 });
