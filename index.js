@@ -10,7 +10,7 @@ const {getUserAgent, getReferer} = require('./lib/browserHelpers');
 const {getAddressScore} = require('./lib/addressScore');
 const {getPhoneScore} = require('./lib/phoneScore');
 const {frontier, calculateBusinessScores, parseDirectoryBusinessesAddress, getBestResult} = require('./lib/frontier');
-const { getHours } = require('./lib/hours');
+const { getHours, getHoursValidation } = require('./lib/hours');
 
 exports = module.exports = {
   normalize: require('./lib/normalize'),
@@ -40,5 +40,6 @@ exports = module.exports = {
   calculateBusinessScores,
   parseDirectoryBusinessesAddress,
   getBestResult,
-  getHours
+  getHours,
+  getHoursValidation
 };

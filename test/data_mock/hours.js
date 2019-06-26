@@ -97,7 +97,7 @@ const basicHoursWrongTimeFormat = {
   ]
 }
 
-/** Success: Basic format */
+/** Error: Basic format */
 const incompleteRangeObject = {
   periods: [{
       openDay: 'MONDAY',
