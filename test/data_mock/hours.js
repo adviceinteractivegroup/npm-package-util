@@ -50,6 +50,28 @@ const basicHours = {
   ]
 }
 
+/** Error: The open and close are the same */
+const sameOpenAndCloseTime = {
+  periods: [{
+      openDay: 'MONDAY',
+      openTime: '08:00',
+      closeDay: 'MONDAY',
+      closeTime: '08:00'
+    }
+  ]
+}
+
+/** Success: Only if both are "00:00" is success */
+const allDayHours = {
+  periods: [{
+      openDay: 'MONDAY',
+      openTime: '00:00',
+      closeDay: 'MONDAY',
+      closeTime: '00:00'
+    }
+  ]
+}
+
 /** Error: Time wrong format */
 const basicHoursWrongTimeFormat = {
   periods: [{
@@ -618,6 +640,8 @@ const reponseMultipleNotSplited = {
 
 module.exports = {
   basicHours,
+  sameOpenAndCloseTime,
+  allDayHours,
   basicHoursWrongTimeFormat,
   incompleteRangeObject,
   basicHoursCloseDayLower,
