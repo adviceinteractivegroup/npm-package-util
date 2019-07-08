@@ -6,6 +6,8 @@ const {
 } = require('../lib/hours');
 const {
     basicHours,
+    sameOpenAndCloseTime,
+    allDayHours,
     basicHoursWrongTimeFormat,
     incompleteRangeObject,
     basicHoursCloseDayLower,
@@ -52,6 +54,12 @@ describe('hours', () => {
         it('Basic hours, should return the same object', () => {
             expect(getHours(basicHours, 'google')).to.be.equal(basicHours);
         });
+        it('Basic hours, same open and close time, should fail', () => {
+            expect(() => getHours(sameOpenAndCloseTime, 'google')).to.throw('The openTime "08:00" and closeTime "08:00" must be different; ');
+        });
+        it('Basic hours, same open and close time "00:00", should return the same', () => {
+            expect(getHours(allDayHours, 'google')).to.be.equal(allDayHours);
+        });
         it('Multiple hours, should return the same object', () => {
             expect(getHours(multipleHours, 'google')).to.be.equal(multipleHours);
         });
@@ -71,6 +79,12 @@ describe('hours', () => {
     describe('getOtherTemplatesHours', () => {
         it('Basic hours, should return the same object', () => {
             expect(getHours(basicHours, 'yelp')).to.be.eql(basicHours);
+        });
+        it('Basic hours, same open and close time, should fail', () => {
+            expect(() => getHours(sameOpenAndCloseTime, 'yelp')).to.throw('The openTime "08:00" and closeTime "08:00" must be different; ');
+        });
+        it('Basic hours, same open and close time "00:00", should return the same', () => {
+            expect(getHours(allDayHours, 'yelp')).to.be.eql(allDayHours);
         });
         it('Multiple hours, should return one object by day', () => {
             expect(getHours(multipleHours, 'yelp')).to.be.eql(reponseMultipleNotSplited);
