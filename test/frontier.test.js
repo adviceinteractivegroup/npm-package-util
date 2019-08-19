@@ -392,7 +392,7 @@ describe('getBestResult', () => {
       nameSorensenScore: 0.9142857142857143,
       nameLevenshteinScore: 3
     }];
-    let result = getBestResult(scores, query);
+    let result = getBestResult({ scores, query, client: {hide: false} });
     should.exist(result);
     assert.isObject(result);
     assert.propertyVal(result, 'query', 'https://www.advicelocal.com/');
@@ -405,7 +405,7 @@ describe('getBestResult', () => {
   });
   it('should NOT return the best result', () => {
     let scores = [];
-    let result = getBestResult(scores, query);
+    let result = getBestResult({ scores, query, client: { hide: false } });
     should.exist(result);
     assert.isObject(result);
     assert.property(result, 'error');
