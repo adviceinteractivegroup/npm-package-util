@@ -40,8 +40,8 @@ describe('hours', () => {
         it('without predios, should fail by format', () => {
             expect(() => getHours(invalidFormat, 'google')).to.throw('Hours format Invalid');
         });
-        it('empty hours array, should fail by format', () => {
-            expect(() => getHours(emptyHours, 'google')).to.throw('Hours format Invalid');
+        it('empty hours array, should return empty string', () => {
+            expect(getHours(emptyHours, 'google')).to.be.eq('');
         });
         it('wrong time format, should fail with two errors (28:00, 19:99)', () => {
             expect(() => getHours(basicHoursWrongTimeFormat, 'google')).to.throw('The closeTime "28:00" has invalid format, it must be (HH:MM); The closeTime "19:99" has invalid format, it must be (HH:MM); ');
@@ -100,6 +100,9 @@ describe('hours', () => {
         });
         it('Basic hours, wrong close day label, should fail', () => {
             expect(() => getHours(invalidCloseDayLabelHours, 'yelp')).to.throw('The closeDay "FTIDAY" is invalid; ');
+        });
+        it('empty hours array, should return empty string', () => {
+            expect(getHours(emptyHours, 'yelp')).to.be.eq('');
         });
     });
 });
