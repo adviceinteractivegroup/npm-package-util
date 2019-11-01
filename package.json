@@ -21,7 +21,7 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^3.17.1",
+    "eslint": "^6.6.0",
     "locutus": "^2.0.8",
     "lodash": "^4.17.11",
     "node-async-loop": "^1.2.2",
