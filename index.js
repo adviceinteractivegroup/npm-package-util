@@ -9,8 +9,9 @@ const {legacyClientToClient} = require('./lib/legacyClientToClient');
 const {getUserAgent, getReferer} = require('./lib/browserHelpers');
 const {getAddressScore} = require('./lib/addressScore');
 const {getPhoneScore} = require('./lib/phoneScore');
-const {frontier, calculateBusinessScores, parseDirectoryBusinessesAddress, getBestResult} = require('./lib/frontier');
+const { frontier, calculateBusinessScores, parseDirectoryBusinessesAddress, getBestResult } = require('./lib/frontier');
 const { getHours, getHoursValidation } = require('./lib/hours');
+const { validateClient } = require('./lib/clientValidation');
 
 exports = module.exports = {
   normalize: require('./lib/normalize'),
@@ -41,5 +42,6 @@ exports = module.exports = {
   parseDirectoryBusinessesAddress,
   getBestResult,
   getHours,
-  getHoursValidation
+  getHoursValidation,
+  validateClient
 };

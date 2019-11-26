@@ -28,7 +28,5 @@
     "node-async-loop": "^1.2.2",
     "parse-address-string": "^0.0.3",
     "request": "^2.79.0",
-    "taxonomy": "git+ssh://git@github.com/adviceinteractivegroup/taxonomy.git",
-    "util.promisify": "^1.0.0"
   }
 }
