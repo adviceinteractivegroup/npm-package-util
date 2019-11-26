@@ -153,24 +153,24 @@ describe('clientValidation', function () {
           done();
         });
   });
-  it('should reject with error, Could not find gcid', done => {
-    let clientCopy = JSON.parse(JSON.stringify(client));
-    clientCopy.categoryGoogle = 'wrong',
-      validateClient(clientCopy)
-        .then(result => {
-          should.not.exist(result);
-          done();
-        })
-        .catch(err => {
-          expect(err).to.be.deep.eql(
-            [{
-              message: 'Could not find gcid: "gcid:wrong"',
-              field: 'categoryGoogle'
-            }]
-          );
-          done();
-        });
-  });
+  // it('should reject with error, Could not find gcid', done => {
+  //   let clientCopy = JSON.parse(JSON.stringify(client));
+  //   clientCopy.categoryGoogle = 'wrong',
+  //     validateClient(clientCopy)
+  //       .then(result => {
+  //         should.not.exist(result);
+  //         done();
+  //       })
+  //       .catch(err => {
+  //         expect(err).to.be.deep.eql(
+  //           [{
+  //             message: 'Could not find gcid: "gcid:wrong"',
+  //             field: 'categoryGoogle'
+  //           }]
+  //         );
+  //         done();
+  //       });
+  // });
   it('should reject with error, not valid phone for that country', done => {
     let clientCopy = JSON.parse(JSON.stringify(client));
     clientCopy.phone = '12345678',
