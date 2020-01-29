@@ -80,7 +80,7 @@ let client = {
   'phone': '1 234 567 8099',
   'phoneAlt': null,
   'fax': '',
-  'website': '',
+  'website': 'https://evac.insure/contact',
   'email': '',
   'emailPrivate': 'susan.kuslis@sbcglobal.net',
   'facebook': '',
@@ -215,35 +215,35 @@ describe('clientValidation', function () {
           should.not.exist(result);
           done();
         })
-      .catch(err => {
+        .catch(err => {
           expect(err).to.be.deep.eql(
             [{
               message: 'country must be one of US, CA, CR, GB, AU, BS, DE, NZ',
               field: 'country'
             },
-              {
-                message: '-UsA- is not in the list of valid countries, so we can not validate the state',
-                field: 'state'
-              },
-              {
-                message: '-UsA- is not in the list of valid countries, so we can not validate the zipcode',
-                field: 'zipcode'
-              },
-              {
-                message: '-UsA- is not in the list of valid countries, so we can not validate the phone',
-                field: 'phone'
-              },
-              {
-                message: '-UsA- is not in the list of valid countries, so we can not validate the phoneAlt',
-                field: 'phoneAlt'
-              },
-              {
-                message: '-UsA- is not in the list of valid countries, so we can not validate the fax',
-                field: 'fax'
-              }]
+            {
+              message: '-UsA- is not in the list of valid countries, so we can not validate the state',
+              field: 'state'
+            },
+            {
+              message: '-UsA- is not in the list of valid countries, so we can not validate the zipcode',
+              field: 'zipcode'
+            },
+            {
+              message: '-UsA- is not in the list of valid countries, so we can not validate the phone',
+              field: 'phone'
+            },
+            {
+              message: '-UsA- is not in the list of valid countries, so we can not validate the phoneAlt',
+              field: 'phoneAlt'
+            },
+            {
+              message: '-UsA- is not in the list of valid countries, so we can not validate the fax',
+              field: 'fax'
+            }]
           );
           done();
         });
   });
 });
-  
+
