@@ -1,17 +1,17 @@
 'use strict';
 
-const {isNumeric, isURL, grep} = require('./lib/general');
-const {filterStopWords} = require('./lib/businessName');
-const {getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType, parseAddress} = require('./lib/address');
-const {normalizePhone} = require('./lib/phone');
+const { isNumeric, isURL, grep } = require('./lib/general');
+const { filterStopWords } = require('./lib/businessName');
+const { getAbreviatedState, normalizeSuite, normalizeCompass, normalizeStreetType, parseAddress } = require('./lib/address');
+const { normalizePhone } = require('./lib/phone');
 const removeSomeCharacters = require('./lib/removeSomeCharacters');
-const {legacyClientToClient} = require('./lib/legacyClientToClient');
-const {getUserAgent, getReferer} = require('./lib/browserHelpers');
-const {getAddressScore} = require('./lib/addressScore');
-const {getPhoneScore} = require('./lib/phoneScore');
+const { legacyClientToClient } = require('./lib/legacyClientToClient');
+const { getUserAgent, getReferer } = require('./lib/browserHelpers');
+const { getAddressScore } = require('./lib/addressScore');
+const { getPhoneScore } = require('./lib/phoneScore');
 const { frontier, calculateBusinessScores, parseDirectoryBusinessesAddress, getBestResult } = require('./lib/frontier');
 const { getHours, getHoursValidation } = require('./lib/hours');
-const { validateClient } = require('./lib/clientValidation');
+const { validateClient, websiteRegex } = require('./lib/clientValidation');
 
 exports = module.exports = {
   normalize: require('./lib/normalize'),
@@ -43,5 +43,6 @@ exports = module.exports = {
   getBestResult,
   getHours,
   getHoursValidation,
-  validateClient
+  validateClient,
+  websiteRegex
 };
