@@ -22,7 +22,7 @@
     "async-validator": "^3.2.2",
     "bluebird": "^3.4.7",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^3.17.1",
+    "eslint": "^6.7.1",
     "locutus": "^2.0.8",
     "lodash": "^4.17.11",
     "node-async-loop": "^1.2.2",
